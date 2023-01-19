@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="center" style="margin-top: 10rem">
+        <h1 class="h1">DETAILS ORDER CLIENT</h1>
+        <div class="info">
+            <img class="img" src="{{ orders.car.photo }}">
+        </div>
+        <div class="table">
+            <table id="customers">
+                <tr>
+                    <th>USER</th>
+                    <th>CAR</th>
+                    <th>LOCATION</th>
+                    <th>TIME PICK</th>
+                    <th>TIME RETURN</th>
+                </tr>
+                <tr>
+                    <td> {{ orders.user.userName }}</td>
+                    <td>{{ orders.car.brand }}</td>
+                    <td>{{ orders.pickUpLocation }}</td>
+                    <td>{{ orders.pickUpDataTime }}</td>
+                    <td>{{ orders.timeRental }}</td>
+                </tr>
+                <tr>
+                    <td>{{ orders.user.phoneNumber }}</td>
+                    <td>{{ orders.car.model }}</td>
+                </tr>
+                <tr>
+                    <td>{{ orders.user.email }}</td>
+                    <td>{{ orders.car.description }}</td>
+                </tr>
+                <tr>
+                    <td>{{ orders.user.license }}</td>
+                    <td>{{ orders.car.color }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>{{ orders.price }}</td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+
+{% block body %}
+
+    <body class="dash_board">
+            <div style="margin-top: 5rem">
+                <h1 class="h1_index">Dashboard</h1>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Brand</th>
+                        <th>Photo</th>
+                        <th>Model</th>
+                        <th>Description</th>
+                        <th>Color</th>
+                        <th>Price</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for car in cars %}
+                        <tr>
+                            <td>{{ car.id }}</td>
+                            <td>{{ car.brand }}</td>
+                            <td><img src="{{ car.photo }}" style="height: 4rem; width: 6rem"></td>
+                            <td>{{ car.model }}</td>
+                            <td>{{ car.description }}</td>
+                            <td>{{ car.color }}</td>
+                            <td>{{ car.price }}</td>
+                            <td>
+                                <a  class="show_index" href="{{ path('app_admin_show', {'id': car.id}) }}">show</a>
+                                <a class="edit_index" href="{{ path('app_admin_edit', {'id': car.id}) }}">edit</a>
+
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <a href="{{ path('app_admin_new') }}" class="back_to_list">Create new</a>
+
+            </div>
+    </body>
+
+
+
+{% endblock %}

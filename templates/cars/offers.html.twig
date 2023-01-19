@@ -1,0 +1,167 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CarsController!{% endblock %}
+
+
+{% block body %}
+
+    <!-- ***** Call to Action Start ***** -->
+    <section class="section section-bg" id="call-to-action"
+             style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="cta-content">
+                        <br>
+                        <br>
+                        <h2>Our <em>Offers</em></h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Call to Action End ***** -->
+
+
+    <!-- ***** Fleet Starts ***** -->
+    <section class="section" id="trainers">
+        <div class="container">
+            <br>
+            <br>
+            <div class="row">
+                {% for car in cars %}
+                    <div class="col-lg-4 col-md-4">
+                        <div class="trainer-item">
+                            <div class="image-thumb">
+                                <img  class="img_car" src="{{ car.photo }}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <span>from {{ car.price }} per weekend</span>
+                                <h4> {{ car.color }} {{ car.brand }} {{ car.model }}</h4>
+                                <p>{{ car.description }}</p>
+                                <ul class="social-icons">
+
+                                    <div class="main-button text-center">
+                                        <a href="{{ path('app_booking', {'id': car.id}) }}">+ Book Now</a>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <br>
+
+{#            <nav>#}
+{#                <ul class="pagination pagination-lg justify-content-center">#}
+{#                    <li class="page-item">#}
+{#                        <a class="page-link" href="#" aria-label="Previous">#}
+{#                            <span aria-hidden="true">&laquo;</span>#}
+{#                            <span class="sr-only">Previous</span>#}
+{#                        </a>#}
+{#                    </li>#}
+{#                    <li class="page-item"><a class="page-link" href="#">1</a></li>#}
+{#                    <li class="page-item"><a class="page-link" href="#">2</a></li>#}
+{#                    <li class="page-item"><a class="page-link" href="#">3</a></li>#}
+{#                    <li class="page-item">#}
+{#                        <a class="page-link" href="#" aria-label="Next">#}
+{#                            <span aria-hidden="true">&raquo;</span>#}
+{#                            <span class="sr-only">Next</span>#}
+{#                        </a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </nav>#}
+
+        </div>
+    </section>
+    <!-- ***** Fleet Ends ***** -->
+
+
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Book Now</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="contact-us">
+                        <div class="contact-form">
+                            <form action="#" id="contact">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input type="text" class="form-control" placeholder="Pick-up location"
+                                                   required="">
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input type="text" class="form-control" placeholder="Return location"
+                                                   required="">
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input type="text" class="form-control" placeholder="Pick-up date/time"
+                                                   required="">
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input type="text" class="form-control" placeholder="Return date/time"
+                                                   required="">
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Enter full name" required="">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input type="text" class="form-control" placeholder="Enter email address"
+                                                   required="">
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input type="text" class="form-control" placeholder="Enter phone"
+                                                   required="">
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

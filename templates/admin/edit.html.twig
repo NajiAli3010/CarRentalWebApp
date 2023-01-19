@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Car{% endblock %}
+
+{% block body %}
+
+    <div style="margin-top: 10rem; width: 25%">
+        <h1 class="h1_index">Edit Car</h1>
+
+        {{ include('admin/_form.html.twig', {'button_label': 'Update'}) }}
+
+    </div>
+
+    <div class="container" style="margin-right: 50rem; margin-top: 20px">
+        <div class="row"  >
+            <div class="col-sm">
+                <a href="{{ path('app_admin_index') }}" class="back_to_list">back to list</a>
+
+            </div>
+            <div class="col-sm" style="margin-right: 62rem">
+
+                {{ include('admin/_delete_form.html.twig') }}
+
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}
